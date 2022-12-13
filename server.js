@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const hbs = require('express-handlebars');
 const passport = require('passport');
-const passportConfig = require('./config/passport');
+require('./config/passport');
 const session = require('express-session');
 
 
