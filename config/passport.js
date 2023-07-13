@@ -1,6 +1,5 @@
 const passport = require('passport');
-require('dotenv').config()
-const dotenv=require('dotenv');
+
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 // configure passport provider options
@@ -9,6 +8,7 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.clientSecret,
   callbackURL: process.env.callbackURL,
 }, (accessToken, refreshToken, profile, done) => {
+  
 done(null, profile);
 }));
 
@@ -21,3 +21,7 @@ passport.serializeUser((user, serialize) => {
 passport.deserializeUser((obj, deserialize) => {
   deserialize(null, obj);
 });
+
+console.log('clientID:', process.env.clientID);
+  console.log('clientSecret:', process.env.clientSecret);
+  console.log('callbackURL:', process.env.callbackURL);
